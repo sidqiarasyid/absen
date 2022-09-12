@@ -1,5 +1,6 @@
 import 'package:absen/absen_masuk.dart';
 import 'package:absen/absen_pulang.dart';
+import 'package:absen/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -23,7 +24,9 @@ class _DashboardPageState extends State<DashboardPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text("Absen", style: GoogleFonts.roboto(fontWeight: FontWeight.w500, fontSize: 18),),
-                IconButton(onPressed: (){}, icon: Icon(Icons.person))
+                IconButton(onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => Profile()));
+                }, icon: Icon(Icons.person))
               ],
             ),
           ),
