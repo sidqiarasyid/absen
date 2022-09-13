@@ -18,29 +18,27 @@ class _AbsenPulangPageState extends State<AbsenPulangPage> {
           body: Column(
             children: [
               Container(
-                margin: EdgeInsets.only(top: 20),
-                padding: EdgeInsets.symmetric(horizontal: 16),
+                margin: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.02, bottom: MediaQuery.of(context).size.height * 0.05),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
+                    IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: Icon(
+                        Icons.arrow_back_rounded,
+                        size: 28,
+                      ),
+                      splashRadius: 30,
+                      alignment: Alignment.centerLeft,
+                    ),
                     Text(
                       "Absen Pulang",
                       style: GoogleFonts.roboto(
-                          fontWeight: FontWeight.w500, fontSize: 16),
-                    ),
-                    GestureDetector(
-                      onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => Profile(),));
-                      },
-                      child: Container(
-                        width: 36,
-                        height: 36,
-                        child: Image.asset(
-                          "assets/images/profilelogo.png",
-                          fit: BoxFit.cover,
-                        ),
+                        fontSize: 18,
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),

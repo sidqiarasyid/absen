@@ -70,7 +70,7 @@ class _ProfileState extends State<Profile> {
                     Text(
                       "Profile",
                       style: GoogleFonts.roboto(
-                        fontSize: 22,
+                        fontSize: 18,
                       ),
                     ),
                   ],
