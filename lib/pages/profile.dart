@@ -1,5 +1,4 @@
-import 'package:absen/change_password.dart';
-import 'package:absen/dashboard.dart';
+import 'package:absen/pages/change_password.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -14,6 +13,7 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+
     showAlertDialog(BuildContext context) {
       // set up the button
       Widget cancelButton = TextButton(
@@ -151,7 +151,7 @@ class _ProfileState extends State<Profile> {
               ),
               Container(
                 width: size.width,
-                height: 40,
+                height: 50,
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.push(
@@ -183,7 +183,7 @@ class _ProfileState extends State<Profile> {
               ),
               Container(
                 width: size.width,
-                height: 40,
+                height: 50,
                 child: ElevatedButton(
                   onPressed: () {
                     showAlertDialog(context);

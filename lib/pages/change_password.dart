@@ -23,7 +23,6 @@ class _ChangePasswordState extends State<ChangePassword> {
                 margin: EdgeInsets.only(
                     top: size.height * 0.02, bottom: size.height * 0.05),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     IconButton(
                       onPressed: () {
@@ -37,32 +36,31 @@ class _ChangePasswordState extends State<ChangePassword> {
                       alignment: Alignment.centerLeft,
                     ),
                     Text(
-                      "Profile",
+                      "Ganti Password",
                       style: GoogleFonts.roboto(
-                        fontSize: 22,
+                        fontSize: 18,
                       ),
                     ),
                   ],
                 ),
               ),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 15),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                    focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black, width: 1.5),
-                    ),
-                    prefixIcon: Icon(
-                      Icons.lock,
-                      color: Colors.black,
-                    ),
-                    prefixIconColor: Colors.black,
-                    hintText: "Password baru",
+              TextFormField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20)
                   ),
-                  obscureText: true,
+                  prefixIcon: Icon(
+                    Icons.lock_outline,
+                    color: Colors.black,
+                  ),
+                  prefixIconColor: Colors.black,
+                  hintText: "Password baru",
                 ),
+                obscureText: true,
               ),
-              SizedBox(height: size.height * 0.07,),
+              SizedBox(
+                height: size.height * 0.07,
+              ),
               Container(
                 width: size.width,
                 height: 50,
@@ -78,7 +76,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                   style: ButtonStyle(
                     shape: MaterialStateProperty.all(
                       RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(16),
+                        borderRadius: BorderRadius.circular(20),
                       ),
                     ),
                   ),

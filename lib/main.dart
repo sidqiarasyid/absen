@@ -1,6 +1,6 @@
-import 'package:absen/login.dart';
-import 'package:absen/profile.dart';
-import 'package:absen/splash_screen.dart';
+import 'package:absen/pages/login.dart';
+import 'package:absen/pages/profile.dart';
+import 'package:absen/pages/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
