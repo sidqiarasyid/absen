@@ -23,7 +23,7 @@ class _LoginPageState extends State<LoginPage> {
                 height: 100,
               ),
               Text(
-                "Absen Guru RPL \n SMK RUS",
+                "Absensi Guru \n SMK RUS",
                 textAlign: TextAlign.center,
                 style: GoogleFonts.roboto(
                     fontSize: 32, fontWeight: FontWeight.w500),
@@ -75,6 +75,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               Container(
                   width: 310,
+                  height: 40,
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.push(
