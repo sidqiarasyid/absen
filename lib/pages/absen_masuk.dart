@@ -1,6 +1,7 @@
 import 'package:absen/pages/selesai_absen_masuk.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:image_picker/image_picker.dart';
 
 class AbsenMasukPage extends StatefulWidget {
   const AbsenMasukPage({Key? key}) : super(key: key);
@@ -10,6 +11,36 @@ class AbsenMasukPage extends StatefulWidget {
 }
 
 class _AbsenMasukPageState extends State<AbsenMasukPage> {
+  Future _takePicture(BuildContext context) async {
+    final navigator = Navigator.of(context);
+    final ImagePicker picker = ImagePicker();
+    XFile? pickedImage;
+
+    try {
+      pickedImage = await picker.pickImage(
+          source: ImageSource.camera,
+          preferredCameraDevice: CameraDevice.front);
+
+      if (pickedImage != null) {
+        await navigator.push(
+          MaterialPageRoute(
+            builder: (context) =>
+                SelesaiMasukPage(imagePath: pickedImage!.path),
+          ),
+        );
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text("No image was selected"),
+          ),
+        );
+      }
+    } catch (e) {
+      print(e);
+      print("error");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -81,12 +112,7 @@ class _AbsenMasukPageState extends State<AbsenMasukPage> {
                     height: 45,
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => SelesaiMasukPage(),
-                          ),
-                        );
+                        _takePicture(context);
                       },
                       child: Text(
                         "Ambil Foto",

@@ -1,15 +1,21 @@
+import 'dart:io';
+
 import 'package:absen/pages/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:image_picker/image_picker.dart';
 
 class SelesaiMasukPage extends StatefulWidget {
-  const SelesaiMasukPage({Key? key}) : super(key: key);
+  final String imagePath;
+
+  const SelesaiMasukPage({Key? key, required this.imagePath}) : super(key: key);
 
   @override
   State<SelesaiMasukPage> createState() => _SelesaiMasukPageState();
 }
 
 class _SelesaiMasukPageState extends State<SelesaiMasukPage> {
+
   showAlertDialog(BuildContext context) {
     // set up the button
     Widget cancelButton = TextButton(
@@ -85,9 +91,12 @@ class _SelesaiMasukPageState extends State<SelesaiMasukPage> {
                   height: size.height * 0.035,
                 ),
                 Container(
-                  color: Colors.grey,
                   width: size.width * 0.75,
-                  height: 400,
+                  height: size.height * 0.48,
+                  child: Image.file(
+                    File(widget.imagePath),
+                    fit: BoxFit.cover,
+                  ),
                 ),
                 SizedBox(
                   height: 20,
@@ -110,30 +119,35 @@ class _SelesaiMasukPageState extends State<SelesaiMasukPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Column(
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                                color: Colors.red, shape: BoxShape.circle),
-                            child: IconButton(
-                                onPressed: () {},
-                                icon: Icon(
-                                  Icons.clear,
-                                  size: 40,
-                                  color: Colors.white,
-                                )),
-                            width: 55,
-                            height: 55,
-                          ),
-                          SizedBox(
-                            height: 8,
-                          ),
-                          Text(
-                            "Ambil Ulang",
-                            style: GoogleFonts.roboto(
-                                fontWeight: FontWeight.w300, fontSize: 16),
-                          )
-                        ],
+                      GestureDetector(
+                        onTap: () {
+                          // takePicture();
+                        },
+                        child: Column(
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                  color: Colors.red, shape: BoxShape.circle),
+                              child: IconButton(
+                                  onPressed: () {},
+                                  icon: Icon(
+                                    Icons.clear,
+                                    size: 40,
+                                    color: Colors.white,
+                                  )),
+                              width: 55,
+                              height: 55,
+                            ),
+                            SizedBox(
+                              height: 8,
+                            ),
+                            Text(
+                              "Ambil Ulang",
+                              style: GoogleFonts.roboto(
+                                  fontWeight: FontWeight.w300, fontSize: 16),
+                            )
+                          ],
+                        ),
                       ),
                       Column(
                         children: [
@@ -173,4 +187,27 @@ class _SelesaiMasukPageState extends State<SelesaiMasukPage> {
       ),
     );
   }
+
+  // Future<void> takePicture() async {
+  //   final ImagePicker picker = ImagePicker();
+  //   XFile? pickedImage;
+  //
+  //   try {
+  //     pickedImage = await picker.pickImage(source: ImageSource.camera);
+  //   } catch (e) {
+  //     print(e);
+  //   }
+  //
+  //   if (pickedImage != null) {
+  //     setState(() {
+  //       // widget.imagePath = pickedImage!.path;
+  //     });
+  //   } else {
+  //     ScaffoldMessenger.of(context).showSnackBar(
+  //       SnackBar(
+  //         content: Text("No image was selected"),
+  //       ),
+  //     );
+  //   }
+  // }
 }

@@ -1,9 +1,14 @@
+import 'dart:io';
+
 import 'package:absen/pages/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SelesaiPulangPage extends StatefulWidget {
-  const SelesaiPulangPage({Key? key}) : super(key: key);
+  final String imagePath;
+
+  const SelesaiPulangPage({Key? key, required this.imagePath})
+      : super(key: key);
 
   @override
   State<SelesaiPulangPage> createState() => _SelesaiPulangPageState();
@@ -85,9 +90,12 @@ class _SelesaiPulangPageState extends State<SelesaiPulangPage> {
                   height: size.height * 0.035,
                 ),
                 Container(
-                  color: Colors.grey,
                   width: size.width * 0.75,
-                  height: 400,
+                  height: size.height * 0.48,
+                  child: Image.file(
+                    File(widget.imagePath),
+                    fit: BoxFit.cover,
+                  ),
                 ),
                 SizedBox(
                   height: 20,
